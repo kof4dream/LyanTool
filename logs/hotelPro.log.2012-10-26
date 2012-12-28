@@ -1,0 +1,2 @@
+2012-10-26 17:55:12,257 INFO [com.kof.springmvc.web.InventoryController.handleRequest(InventoryController.java:24)]  - <returning hello viewFri Oct 26 17:55:12 CST 2012>
+2012-10-26 17:55:56,080 INFO [com.kof.springmvc.web.InventoryController.handleRequest(InventoryController.java:24)]  - <returning hello viewFri Oct 26 17:55:56 CST 2012>

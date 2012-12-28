@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+      <!--  <bean id="productManager" class="com.kof.springmvc.service.SimpleProductManager">
+       		<property name="products">
+       			<list>
+       				<ref bean="product1"/>
+       				<ref bean="product2"/>
+       				<ref bean="product3"/>
+       			</list>
+       		</property>
+       </bean>
+       
+       <bean id="product1" class="com.kof.springmvc.domain.Product">
+       		<property name="description">
+       			<value>Lamp</value>
+       		</property>
+       		<property name="price">
+       			<value>5.75</value>
+       		</property>
+       </bean>
+       
+       <bean id="product2" class="com.kof.springmvc.domain.Product">
+       		<property name="description">
+       			<value>Table</value>
+       		</property>
+       		<property name="price">
+       			<value>75.25</value>
+       		</property>
+       </bean>
+       
+       <bean id="product3" class="com.kof.springmvc.domain.Product">
+       		<property name="description">
+       			<value>Chair</value>
+       		</property>
+       		<property name="price">
+       			<value>22.79</value>
+       		</property>
+       </bean> -->
+       
+       <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+       		<property name="basename">
+       			<value>messages</value>
+       		</property>
+       </bean>
+       
+       <bean name="/hello.htm" class="com.kof.springmvc.web.InventoryController">
+       		<property name="productManager" ref="productManager"></property>
+       </bean>
+       
+       <bean name="/priceincrease.htm" class="com.kof.springmvc.web.PriceIncreaseFormController">
+       		<property name="sessionForm">
+       			<value>true</value>
+       		</property>
+       		<property name="commandName">
+       			<value>priceIncrease</value>
+       		</property>
+       		<property name="commandClass">
+       			<value>com.kof.springmvc.service.PriceIncrease</value>
+       		</property>
+       		<property name="validator">
+       			<bean class="com.kof.springmvc.service.PriceIncreaseValidator"></bean>
+       		</property>
+       		<property name="formView">
+       			<value>priceincrease</value>
+       		</property>
+       		<property name="successView">
+       			<value>hello.htm</value>
+       		</property>
+       		<property name="productManager">
+       			<ref bean="productManager"/>
+       		</property>
+       </bean>
+       
+       <bean id="priceIncreaseValidator" class="com.kof.springmvc.service.PriceIncreaseValidator"></bean>
+       
+       <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       		<property name="viewClass">
+       			<value>org.springframework.web.servlet.view.JstlView</value>
+       		</property>
+       		<property name="prefix">
+       			<value>/WEB-INF/jsp/</value>
+       		</property>
+       		<property name="suffix">
+       			<value>.jsp</value>
+       		</property>
+       </bean>
+</beans>
